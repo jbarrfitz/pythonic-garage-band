@@ -9,6 +9,10 @@ class Musician(ABC):
     def get_instrument(self):
         pass
 
+    @abstractmethod
+    def play_solo(self):
+        pass
+
 
 class Guitarist(Musician):
 
@@ -18,6 +22,9 @@ class Guitarist(Musician):
 
     def get_instrument(self):
         return self.instrument
+
+    def play_solo(self):
+        return "face melting guitar solo"
 
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
@@ -35,6 +42,9 @@ class Bassist(Musician):
     def get_instrument(self):
         return self.instrument
 
+    def play_solo(self):
+        return "bom bom buh bom"
+
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
 
@@ -50,6 +60,9 @@ class Drummer(Musician):
     def get_instrument(self):
         return self.instrument
 
+    def play_solo(self):
+        return "rattle boom crash"
+
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
 
@@ -58,4 +71,21 @@ class Drummer(Musician):
 
 
 class Band:
-    pass
+    instances = []
+
+    @classmethod
+    def to_list(cls):
+        return cls.instances
+
+    def __init__(self, name, members, ):
+        self.name = name
+        self.members = members
+        Band.instances.append(self)
+
+    def __str__(self):
+        member_strings = [str(member) for member in self.members]
+        return " ".join(member_strings)
+
+    def play_solos(self):
+        solos = [member.play_solo() for member in self.members]
+        return solos
