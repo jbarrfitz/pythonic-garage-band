@@ -9,7 +9,7 @@ from pythonic_garage_band.band import (
 )
 
 
-@pytest.mark.skip("todo")
+# @pytest.mark.skip("todo")
 def test_guitarist_str():
     joan = Guitarist("Joan Jett")
     actual = str(joan)
@@ -106,7 +106,6 @@ def test_individual_solos(one_band):
 
 @pytest.mark.skip("todo")
 def test_band_members(one_band):
-
     assert len(one_band.members) == 3
 
     assert isinstance(one_band.members[0], Musician)
@@ -189,7 +188,6 @@ def clean():
     Check the docs for that. Hint: it uses yield
     """
     Band.instances = []
-
 
 #######################
 # Stretch

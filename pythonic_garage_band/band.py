@@ -1,36 +1,38 @@
-class Musician:
+from abc import ABC, abstractmethod
+
+
+class Musician(ABC):
     def __init__(self, name):
-        name = self.name
+        self.name = name
 
-    def __str__(self):
-        return f"My name is {self.name} and I am a musician"
-
-    def __repr__(self):
-        return f'Musician("{self.name}")'
+    @abstractmethod
+    def get_instrument(self):
+        pass
 
 
 class Guitarist(Musician):
 
-    def __str__(self):
-        return f"My name is {self.name} and I play guitar"
+    def __init__(self, name):
+        super().__init__(name)
+        self.instrument = "guitar"
 
-    def __repr__(self):
-        return f'Guitarist("{self.name}")'
-
-
-class Drummer(Musician):
+    def get_instrument(self):
+        return self.instrument
 
     def __str__(self):
-        return f"My name is {self.name} and I play drums"
+        return f"My name is {self.name} and I play {self.instrument}"
 
     def __repr__(self):
-        return f'Drummer("{self.name}")'
+        return f"Guitarist instance. Name = {self.name}"
 
 
-class Bassist(Musician):
+class Bassist:
+    pass
 
-    def __str__(self):
-        return f"My name is {self.name} and I play bass"
 
-    def __repr__(self):
-        return f'Bassist("{self.name}")'
+class Drummer:
+    pass
+
+
+class Band:
+    pass
