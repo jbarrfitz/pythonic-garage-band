@@ -1,5 +1,6 @@
 import pytest
 import json
+import yaml
 
 from pythonic_garage_band.band import (
     Band,
