@@ -8,6 +8,7 @@ from pythonic_garage_band.band import (
     Guitarist,
     Bassist,
     Drummer,
+    Keyboardist
 )
 
 
@@ -180,7 +181,6 @@ def clean():
 #######################
 
 
-# @pytest.mark.skip("stretch")
 def test_from_file():
     with open("assets/bands.json") as f:
         bands = json.loads(f.read())
@@ -194,7 +194,6 @@ def test_from_file():
     assert nirvana.name == "Nirvana"
 
 
-# @pytest.mark.skip("stretch")
 def test_from_yaml():
     bands = yaml.safe_load(open("assets/bands.yml"))
 
@@ -203,18 +202,17 @@ def test_from_yaml():
     assert bands[1]["name"] == "The Pixies"
 
 
-# @pytest.mark.skip("stretch")
-# def test_abstract_musician():
-#     with pytest.raises(TypeError):
-#         Musician("nobody", "nothing", "silence")
+def test_abstract_musician():
+    with pytest.raises(TypeError):
+        Musician("nobody", "nothing", "silence")
 
 
-# @pytest.mark.skip("stretch")
-# def test_incomplete_keyboardist():
-#     with pytest.raises(TypeError) as e:
-#         Keyboardist("Booker T. Jones")
+@pytest.mark.skip("stretch")
+def test_incomplete_keyboardist():
+    with pytest.raises(TypeError) as e:
+        Keyboardist("Booker T. Jones")
 
-#     assert (
-#         repr(e)
-#         == """<ExceptionInfo TypeError("Can't instantiate abstract class Keyboardist with abstract method some_method_that_must_be_implemented_in_base_class") tblen=1>"""  # noqa: E501
-#     )
+    assert (
+        repr(e)
+        == """<ExceptionInfo TypeError("Can't instantiate abstract class Keyboardist with abstract method some_method_that_must_be_implemented_in_base_class") tblen=1>"""  # noqa: E501
+    )

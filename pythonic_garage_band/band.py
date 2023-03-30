@@ -70,6 +70,25 @@ class Drummer(Musician):
         return f"Drummer instance. Name = {self.name}"
 
 
+class Keyboardist(Musician):
+    def __init__(self, name, instr):
+        super().__init__(name)
+        self.name = name
+        self.instrument = "keyboard"
+
+    def get_instrument(self):
+        return self.instrument
+
+    def play_solo(self):
+        return "plink plink plink"
+
+    def __str__(self):
+        return f"My name is {self.name} and I play {self.instrument}"
+
+    def __repr__(self):
+        return f"Drummer instance. Name = {self.name}"
+
+
 class Band:
     instances = []
 
