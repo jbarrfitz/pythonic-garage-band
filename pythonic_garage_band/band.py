@@ -13,6 +13,12 @@ class Musician(ABC):
     def play_solo(self):
         pass
 
+    # Thanks to Raven (TA), Lauren Main, and Adam Owada for the collective
+    # effort to make this final stretch goal work.
+    @abstractmethod
+    def some_method_that_must_be_implemented_in_base_class(self):
+        pass
+
 
 class Guitarist(Musician):
 
@@ -25,6 +31,9 @@ class Guitarist(Musician):
 
     def play_solo(self):
         return "face melting guitar solo"
+
+    def some_method_that_must_be_implemented_in_base_class(self):
+        pass
 
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
@@ -45,6 +54,9 @@ class Bassist(Musician):
     def play_solo(self):
         return "bom bom buh bom"
 
+    def some_method_that_must_be_implemented_in_base_class(self):
+        pass
+
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"
 
@@ -62,6 +74,9 @@ class Drummer(Musician):
 
     def play_solo(self):
         return "rattle boom crash"
+
+    def some_method_that_must_be_implemented_in_base_class(self):
+        pass
 
     def __str__(self):
         return f"My name is {self.name} and I play {self.instrument}"

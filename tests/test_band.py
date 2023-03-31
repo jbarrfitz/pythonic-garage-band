@@ -207,7 +207,6 @@ def test_abstract_musician():
         Musician("nobody", "nothing", "silence")
 
 
-@pytest.mark.skip("stretch")
 def test_incomplete_keyboardist():
     with pytest.raises(TypeError) as e:
         Keyboardist("Booker T. Jones")
